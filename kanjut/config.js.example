@@ -1,0 +1,5 @@
+const config = {
+    token: 'MTI2MjIyMDYxOTk1NzkzMjEwMw.Gfh0Hb.zxzL_NQaAyCC41I1EBeidAZvlA6G4G2uu4lJe8',
+}
+
+export default config;
