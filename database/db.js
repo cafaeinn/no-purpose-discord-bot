@@ -42,9 +42,17 @@ export const configDb = await open({
   filename: path.join(dataPath, 'config.db'),
   driver: sqlite3.Database,
 });
+
 await configDb.exec(`
   CREATE TABLE IF NOT EXISTS prefixes (
     guildId TEXT PRIMARY KEY,
     prefix TEXT NOT NULL
   );
+`);
+
+await configDb.exec(`
+  CREATE TABLE IF NOT EXISTS trace_channel (
+  guild_id TEXT PRIMARY KEY,
+  channel_id TEXT NOT NULL
+);
 `);
