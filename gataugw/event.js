@@ -11,7 +11,6 @@ export async function loadEvents(client) {
 
   for (const file of files) {
     const event = (await import(`../events/${file}`)).default;
-    const eventName = file.replace('.js', '');
-    client.on(eventName, (...args) => event(...args, client));
+    client.on(event.name, (...args) => event.execute(...args, client));
   }
 }

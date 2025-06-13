@@ -1,24 +1,34 @@
+import { Events } from 'discord.js';
 import { getPrefix } from "../kanjut/prefix.js";
 import animeSearch from '../tasks/animeSearch.js';
 
-export default async (message, client) => {
-  if (message.author.bot) return;
+export default {
+  name: Events.MessageCreate,
+  async execute(message, client) {
+    if (message.author.bot) return;
 
-  await animeSearch(message);
+    await animeSearch(message);
 
-  const prefix = await getPrefix(message.guild.id);
-  if (!message.content.startsWith(prefix)) return;
+    const prefix = await getPrefix(message.guild?.id);
+    const mentionPrefix = `<@${client.user.id}>`;
+    const mentionPrefixAlt = `<@!${client.user.id}>`;
 
-  const args = message.content.slice(prefix.length).trim().split(/\s+/);
-  const commandName = args.shift().toLowerCase();
+    // cek mana yg kepake
+    const usedPrefix = [prefix, mentionPrefix, mentionPrefixAlt].find(p => message.content.startsWith(p));
+    if (!usedPrefix) return;
 
-  const command = client.commands.get(commandName);
-  if (!command) return;
+    const args = message.content.slice(usedPrefix.length).trim().split(/\s+/);
+    const commandName = args.shift()?.toLowerCase();
+    if (!commandName) return;
 
-  try {
-    await command.execute(message, args, client);
-  } catch (error) {
-    console.error(error);
-    message.reply('❌ Command error.');
+    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases?.includes(commandName));
+    if (!command) return;
+
+    try {
+      await command.execute(message, args, client);
+    } catch (error) {
+      console.error(`Error executing command '${commandName}':`, error);
+      message.reply('❌ Command error.');
+    }
   }
 };
