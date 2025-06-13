@@ -10,6 +10,9 @@ async function loginBang(client, token) {
 
     // temp ban monitor
     monitorTempbans(client);
+
+    //status
+    client.user.setActivity('default prefix miku')
   });
 }
 
