@@ -68,8 +68,9 @@ export default {
 
     const success = new EmbedBuilder()
       .setColor(message.member.displayHexColor || "#FF5555")
-      .setTitle("Leave Message Updated")
-      .setDescription(embedData ? "✅ Embed message set." : "✅ Text message set.");
+      .setTitle("👋 Leave Message Updated")
+      .setDescription(embedData ? "✅ Embed message set." : "✅ Text message set.")
+      .setTimestamp();
 
     return message.reply({ embeds: [success] });
   },

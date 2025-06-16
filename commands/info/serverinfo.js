@@ -35,7 +35,8 @@ export default {
         { name: 'Roles', value: `${guild.roles.cache.size}`, inline: true },
         { name: 'Channels', value: `${guild.channels.cache.size}`, inline: true }
       )
-      .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: message.author.displayAvatarURL() });
+      .setFooter({ text: `${message.author.tag}`, iconURL: message.author.displayAvatarURL() })
+      .setTimestamp();
 
     message.reply({ embeds: [embed] });
   }

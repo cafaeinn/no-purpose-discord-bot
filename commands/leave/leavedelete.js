@@ -48,12 +48,13 @@ export default {
 
     const embed = new EmbedBuilder()
       .setColor(message.member.displayHexColor || "#FF5555")
-      .setTitle("Leave Message Auto-Delete Updated")
+      .setTitle("👋 Leave Message Auto-Delete Updated")
       .setDescription(
         delay === 0
           ? "⏹️ Auto-deletion **disabled** for leave messages."
           : `🕒 Leave messages will now auto-delete after **${delay} seconds**.`
-      );
+      )
+      .setTimestamp();
 
     message.reply({ embeds: [embed] });
   },

@@ -20,7 +20,8 @@ export default {
       .setTitle(`${user.username}'s Avatar`)
       .setImage(user.displayAvatarURL({ size: 512, dynamic: true }))
       .setColor(embedColor || 'Blurple')
-      .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: message.author.displayAvatarURL() });
+      .setFooter({ text: `${message.author.tag}`, iconURL: message.author.displayAvatarURL() })
+      .setTimestamp();
 
     await message.reply({ embeds: [embed] });
   }

@@ -37,6 +37,7 @@ export default {
           title: '🔇 User Timed Out',
           description: `**${member.user.tag}** has been timed out for **${duration}**.\n**Reason:** ${reason}`,
           color: parseInt((member.displayHexColor === '#000000' ? '#ffcc00' : member.displayHexColor).replace('#', ''), 16),
+          timestamp: new Date().toISOString()
         }]
       });
     } catch (err) {

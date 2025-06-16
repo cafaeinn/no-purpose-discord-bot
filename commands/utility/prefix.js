@@ -22,6 +22,7 @@ export default {
             (message.member.displayHexColor === '#000000' ? '#5865F2' : message.member.displayHexColor).replace('#', ''),
             16
           ),
+          timestamp: new Date().toISOString()
         }]
       });
     }
@@ -49,6 +50,7 @@ export default {
           (message.member.displayHexColor === '#000000' ? '#43B581' : message.member.displayHexColor).replace('#', ''),
           16
         ),
+        timestamp: new Date().toISOString()
       }]
     });
   }

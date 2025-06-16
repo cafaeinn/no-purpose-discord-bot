@@ -27,6 +27,7 @@ export default {
           title: '👢 User Kicked',
           description: `**${user.user.tag}** was kicked.\n**Reason:** ${reason}`,
           color: parseInt((user.displayHexColor === '#000000' ? '#ffcc00' : user.displayHexColor).replace('#', ''), 16),
+          timestamp: new Date().toISOString(),
         }]
       });
     } catch (err) {

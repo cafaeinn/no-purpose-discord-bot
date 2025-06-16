@@ -54,12 +54,13 @@ export default {
 
     const embed = new EmbedBuilder()
       .setColor(message.member.displayHexColor || "#00AAFF")
-      .setTitle("Welcome DM Messages")
+      .setTitle("👋 Welcome DM Messages")
       .setDescription(
         newState
           ? "📩 DM welcome messages are now **enabled**."
           : "🔇 DM welcome messages have been **disabled**."
-      );
+      )
+      .setTimestamp();
 
     message.reply({ embeds: [embed] });
   },

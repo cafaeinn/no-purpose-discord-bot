@@ -59,7 +59,7 @@ export default {
     const summaryEmbed = new EmbedBuilder()
       .setTitle('📖 Help - Overview')
       .setColor(userColor)
-      .setDescription('Use the buttons below to explore commands by category.')
+      .setDescription('List of all command\n\nUse the buttons below to list commands by category.')
       .addFields(
         categories.map(cat => ({
           name: cat,
@@ -67,7 +67,8 @@ export default {
           inline: false,
         }))
       )
-      .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: message.author.displayAvatarURL() });
+      .setFooter({ text: `${message.author.tag}`, iconURL: message.author.displayAvatarURL() })
+      .setTimestamp();
 
     // Other pages — per category
     const categoryEmbeds = categories.map((cat, i) => {

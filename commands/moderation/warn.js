@@ -45,7 +45,8 @@ export default {
         embeds: [{
           title: `⚠️ Warnings for ${target.user.tag}`,
           description: warningList,
-          color: parseInt((target.displayHexColor === '#000000' ? '#ffcc00' : target.displayHexColor).replace('#', ''), 16)
+          color: parseInt((target.displayHexColor === '#000000' ? '#ffcc00' : target.displayHexColor).replace('#', ''), 16),
+          timestamp: new Date().toISOString()
         }]
       });
     }

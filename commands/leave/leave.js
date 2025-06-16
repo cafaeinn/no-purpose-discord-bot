@@ -37,7 +37,8 @@ export default {
     const embed = new EmbedBuilder()
       .setTitle('👋 Leave System Updated')
       .setDescription(`Leave messages have been **${newStatus ? "enabled" : "disabled"}** in <#${channelId}>.`)
-      .setColor(message.member?.displayHexColor || 0x00AE86);
+      .setColor(message.member?.displayHexColor || 0x00AE86)
+      .setTimestamp();
 
     await message.channel.send({ embeds: [embed] });
   }

@@ -61,6 +61,7 @@ export default {
           title: '⏳ User Temporarily Banned',
           description: `**${user.user.tag}** was banned for **${durationArg}**.\n**Reason:** ${reason}`,
           color: parseInt((message.member.displayHexColor === '#000000' ? '#ffcc00' : message.member.displayHexColor).replace('#', ''), 16),
+          timestamp: new Date().toISOString(),
         }]
       });
     } catch (err) {

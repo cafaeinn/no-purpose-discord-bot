@@ -1,4 +1,7 @@
 import { configDb } from '../../database/db.js';
+import {
+  EmbedBuilder
+} from 'discord.js';
 
 export default {
   name: 'setanimesearch',
@@ -36,9 +39,18 @@ export default {
       console.log('[DEBUG] Channel saved to DB');
 
       const updated = !!row;
-      return message.channel.send(
-        `✅ Anime search channel ${updated ? 'updated' : 'set'} to ${channel}`
-      );
+
+      var emuotori = new EmbedBuilder()
+      .setTitle(`✅ Anime search channel ${updated ? 'updated' : 'set'}`)
+      .setDescription(`Anime search channel have been set to ${channel}`)
+      .setColor(message.member?.displayHexColor || 0x00AE86)
+      .setTimestamp();
+
+      return message.channel.send({
+        embeds: [
+          emuotori
+        ]
+    });
     } catch (err) {
       console.error('[FATAL ERROR]', err);
       return message.reply('⚠️ An error occurred while saving the channel.');

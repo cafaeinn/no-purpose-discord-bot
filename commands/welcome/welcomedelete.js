@@ -57,12 +57,13 @@ export default {
 
     const embed = new EmbedBuilder()
       .setColor(message.member.displayHexColor || "#00AAFF")
-      .setTitle("Welcome Message Auto-Delete Updated")
+      .setTitle("👋 Welcome Message Auto-Delete Updated")
       .setDescription(
         delay === 0
           ? "⏹️ Auto-deletion **disabled** for welcome messages."
           : `🕒 Welcome messages will now auto-delete after **${delay} seconds**.`
-      );
+      )
+      .setTimestamp();
 
     message.reply({ embeds: [embed] });
   },

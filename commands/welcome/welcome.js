@@ -52,14 +52,13 @@ export default {
       row?.dm_embed || null
     );
 
+    const channelId = message.channel.id;
+
     const embed = new EmbedBuilder()
+      .setTitle(`👋 Welcome System Updated`)
       .setColor(message.member.displayHexColor || "#00AAFF")
-      .setTitle("Welcome System")
-      .setDescription(
-        newState
-          ? `✅ Welcome messages are now **enabled** in <#${message.channel.id}>.`
-          : "❌ Welcome messages have been **disabled**."
-      );
+      .setDescription(`Welcome message have been **${newState ? "enabled" : "disabled"}** in <#${channelId}>`)
+      .setTimestamp();
 
     message.reply({ embeds: [embed] });
   },

@@ -27,7 +27,8 @@ export default {
           color: parseInt(
             (message.member.displayHexColor === '#000000' ? '#5865F2' : message.member.displayHexColor).replace('#', ''),
             16
-          )
+          ),
+          timestamp: new Date().toISOString(),
         }]
       }).then(msg => setTimeout(() => msg.delete().catch(() => {}), 7000));
     } catch (err) {

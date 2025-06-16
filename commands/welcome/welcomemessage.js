@@ -75,8 +75,9 @@ export default {
 
     const success = new EmbedBuilder()
       .setColor(message.member.displayHexColor || "#00AAFF")
-      .setTitle("Welcome Message Updated")
-      .setDescription(embedData ? "✅ Embed welcome message set." : "✅ Text welcome message set.");
+      .setTitle("👋 Welcome Message Updated")
+      .setDescription(embedData ? "✅ Embed welcome message set." : "✅ Text message set.")
+      .setTimestamp();
 
     message.reply({ embeds: [success] });
   },

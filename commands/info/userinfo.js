@@ -30,7 +30,8 @@ export default {
         { name: 'Account Created', value: user.createdAt.toLocaleDateString(), inline: true },
         { name: 'Roles', value: roles, inline: false }
       )
-      .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: message.author.displayAvatarURL() });
+      .setFooter({ text: `${message.author.tag}`, iconURL: message.author.displayAvatarURL() })
+      .setTimestamp();
 
     message.reply({ embeds: [embed] });
   }

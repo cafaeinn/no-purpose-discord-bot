@@ -45,6 +45,7 @@ export default {
           title: '🔨 User Banned',
           description: `**${user.tag}** was banned.\n**Reason:** ${reason}`,
           color: parseInt((message.member.displayHexColor === '#000000' ? '#ff0000' : message.member.displayHexColor).replace('#', ''), 16),
+          timestamp: new Date().toISOString(),
         }]
       });
     } catch (err) {
