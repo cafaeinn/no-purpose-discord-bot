@@ -1,0 +1,9 @@
+server:
+  port: 2333
+lavalink:
+  server:
+    password: "youshallnotpass"
+    sources:
+      youtube: true
+      soundcloud: true
+    bufferDurationMs: 400
