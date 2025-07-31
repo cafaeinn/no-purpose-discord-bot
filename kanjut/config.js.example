@@ -1,5 +1,0 @@
-const config = {
-    token: 'toket',
-}
-
-export default config;
