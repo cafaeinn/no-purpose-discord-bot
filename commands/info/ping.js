@@ -4,7 +4,7 @@ import {
 
 export default {
   name: 'ping',
-  aliases: ['p'],
+  aliases: [],
   category: 'Info',
   description: 'Shows bot ping',
   usage: 'ping',

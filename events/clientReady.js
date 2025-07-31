@@ -1,6 +1,6 @@
 import { Events } from "discord.js";
-import { monitorTempbans } from "../tasks/tempbanMonitor.js";
 import chalk from 'chalk';
+import { monitorTempbans } from "../tasks/tempbanMonitor.js";
 
 export default {
   name: Events.ClientReady,
@@ -10,7 +10,7 @@ export default {
     // temp ban monitor
     monitorTempbans(client);
 
-    //status
-    client.user.setActivity('default prefix miku')
+    // set status
+    client.user.setActivity('default prefix miku');
   },
 };
